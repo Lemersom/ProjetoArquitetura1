@@ -7,7 +7,7 @@ export default class Parser {
     }
 
     parseCSV(fileCSV){
-        return cities = csvToObj(fileCSV, ';');
+        return csvToObj(fileCSV, ';');
     }
 
 }
