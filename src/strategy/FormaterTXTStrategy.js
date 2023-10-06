@@ -1,4 +1,6 @@
-export default class FormaterTXT {
+import AbstractFormater from "./AbstractFormater.js"
+
+export default class FormaterTXT extends AbstractFormater{
 
   report(states) {
     let txt = `Relatório de Nomes de Cidades =============================`;

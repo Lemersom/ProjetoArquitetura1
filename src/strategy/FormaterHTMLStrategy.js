@@ -1,4 +1,6 @@
-export default class FormaterHTML {
+import AbstractFormater from "./AbstractFormater.js"
+
+export default class FormaterHTML extends AbstractFormater{
 
   _htmlStart = `
   <!DOCTYPE HTML>
@@ -18,6 +20,7 @@ export default class FormaterHTML {
   </html>`;
 
   constructor(type) {
+    super()
     this._type = type;
   }
 
