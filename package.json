@@ -9,5 +9,8 @@
     "start": "node index.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "csv-to-js-parser": "^2.3.5"
+  }
 }
