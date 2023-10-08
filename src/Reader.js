@@ -2,11 +2,11 @@ import * as fs from 'node:fs';
 
 export default class Reader {
 
-    readJSON(fileJSON){
+    readJSON(fileJSON) {
         return fs.readFileSync(fileJSON);
     }
 
-    readCSV(fileCSV){
+    readCSV(fileCSV) {
         return fs.readFileSync(fileCSV).toString();
     }
 

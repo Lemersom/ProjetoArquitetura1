@@ -1,6 +1,6 @@
-import AbstractFormater from "./AbstractFormater.js"
+import AbstractFormater from "../AbstractFormater.js";
 
-export default class FormaterHTML extends AbstractFormater{
+export default class FormaterHTML extends AbstractFormater {
 
   _htmlStart = `
   <!DOCTYPE HTML>
@@ -22,14 +22,15 @@ export default class FormaterHTML extends AbstractFormater{
   constructor(type) {
     super()
     this._type = type;
+    this.html = "";
   }
 
   report(states) {
-    let html = this._htmlStart;
-    html = this._type.output(states, html);
-    html += this._htmlEnd;
+    this.html = this._htmlStart;
+    this.html = this._type.output(states);
+    this.html += this._htmlEnd;
 
-    return html
+    return this.html;
   }
 
 }
