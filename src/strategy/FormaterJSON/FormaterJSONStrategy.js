@@ -1,30 +1,25 @@
 import AbstractFormater from "../AbstractFormater.js"
 
-export default class FormaterJSON extends AbstractFormater{
+export default class FormaterJSON extends AbstractFormater {
 
-    
-      jsonStart = `
-      {
-        "cidades": [`;
+  jsonStart = `[`;
 
-      jsonEnd = `  ]
-}`
-    
+  jsonEnd = `]`;
 
-    constructor(type) {
-      super()
-      this._type = type;
-      this.json = ""
-    }
-  
-    report(states) {
-      this.json = this.jsonStart;
-      this.json = this._type.output(states);
-      this.json += this.jsonEnd;
 
-      return this.json
-    }
+  constructor(type) {
+    super();
+    this._type = type;
+    this.json = "";
+  }
+
+  report(data) {
+    this.json = this.jsonStart;
+    this.json = this._type.output(data);
+    this.json += this.jsonEnd;
+
+    return this.json;
+  }
 
 }
-  
-  
+

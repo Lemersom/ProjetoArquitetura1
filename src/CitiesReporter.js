@@ -22,10 +22,10 @@ export default class CitiesReporter {
 
     _parse() {
         if (this.parserType === "CSV") {
-            this._states = this.parser.parseCSV(this._statesRead);
+            this._states = this.parser.parseCSV(this._statesRead, this.parserType);
         }
-        else if (this.parserType === "JSON") {
-            this._states = this.parser.parseJSON(this._statesRead);
+        else if (this.parserType === "JSON1" || this.parserType === "JSON2") {
+            this._states = this.parser.parseJSON(this._statesRead, this.parserType);
         }
     }
 
@@ -34,5 +34,5 @@ export default class CitiesReporter {
         this._parse();
         return this._type.report(this._states);
     }
-    
+
 }

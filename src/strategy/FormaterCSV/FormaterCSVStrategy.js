@@ -2,19 +2,19 @@ import AbstractFormater from "../AbstractFormater.js";
 
 export default class FormaterCSV extends AbstractFormater {
 
-  csvStart = `Estado,Cidade`;
+  csvStart = `Cidade,Estado`;
 
   constructor(type) {
-    super()
+    super();
     this._type = type;
     this.csv = "";
   }
 
-  report(states) {
+  report(data) {
     this.csv = this.csvStart;
-    this.csv = this._type.output(states);
+    this.csv = this._type.output(data);
 
     return this.csv;
   }
-  
+
 }
