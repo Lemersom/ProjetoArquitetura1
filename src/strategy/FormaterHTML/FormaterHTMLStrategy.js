@@ -25,9 +25,9 @@ export default class FormaterHTML extends AbstractFormater {
     this.html = "";
   }
 
-  report(states) {
+  report(data) {
     this.html = this._htmlStart;
-    this.html = this._type.output(states);
+    this.html = this._type.output(data);
     this.html += this._htmlEnd;
 
     return this.html;

@@ -21,14 +21,17 @@ export default class CitiesReporterBuilder extends CitiesReporter {
     }
 
     setParser(fileType) {
-        if (fileType === "JSON") {
-            this.citiesReporter.parserType = "JSON";
+        if (fileType === "JSON1") {
+            this.citiesReporter.parserType = "JSON1";
+        }
+        else if (fileType === "JSON2") {
+            this.citiesReporter.parserType = "JSON2";
         }
         else if (fileType === "CSV") {
             this.citiesReporter.parserType = "CSV";
         }
         else {
-            console.log("ERRO: deve ser JSON ou CSV");
+            console.log("ERRO: deve ser JSON1, JSON2 ou CSV");
             process.exit(1);
         }
     }
@@ -36,5 +39,5 @@ export default class CitiesReporterBuilder extends CitiesReporter {
     setStrategy(strategy) {
         this.citiesReporter._type = strategy;
     }
-    
+
 }

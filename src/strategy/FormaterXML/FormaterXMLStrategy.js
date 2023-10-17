@@ -18,9 +18,9 @@ export default class FormaterXML extends AbstractFormater {
     this.xml = "";
   }
 
-  report(states) {
+  report(data) {
     this.xml = this.xmlStart;
-    this.xml = this._type.output(states);
+    this.xml = this._type.output(data);
     this.xml += this.xmlEnd;
 
     return this.xml;

@@ -5,14 +5,14 @@ export default class FormaterTXT extends AbstractFormater {
   txtStart = `Relatório de Nomes de Cidades =============================`;
 
   constructor(type) {
-    super()
+    super();
     this._type = type;
     this.txt = "";
   }
 
-  report(states) {
+  report(data) {
     this.txt = this.txtStart;
-    this.txt = this._type.output(states);
+    this.txt = this._type.output(data);
 
     return this.txt;
   }

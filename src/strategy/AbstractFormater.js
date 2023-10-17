@@ -1,6 +1,6 @@
 export default class AbstractFormater {
 
-  output(cities) {
+  output(data) {
     throw new Error('Should implement output method...');
   }
 
