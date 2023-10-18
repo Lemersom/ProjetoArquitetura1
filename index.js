@@ -21,7 +21,10 @@ import OutputJSON from './src/strategy/FormaterJSON/OutputJSON.js';
 import FormaterXML from './src/strategy/FormaterXML/FormaterXMLStrategy.js';
 import OutputXML from './src/strategy/FormaterXML/OutputXML.js';
 
+//DECORATOR
 
+import toUpperCaseHTMLDecorator from './src/DecoratorHTML/ToUpperCaseHTMLDecorator.js';
+import toBoldHTMLDecorator from './src/DecoratorHTML/toBoldHTMLDecorator.js';
 
 const [cmd, script, format] = process.argv;
 const fileJSON1 = './data/cidades-1.json',
@@ -47,29 +50,29 @@ builder3.setParser("CSV");
 
 
 if (format === 'html') {
-    builder1.setStrategy(new FormaterHTML(new OutputHTML()));
-    builder2.setStrategy(new FormaterHTML(new OutputHTML()));
-    builder3.setStrategy(new FormaterHTML(new OutputHTML()));
+    builder1.setFormater(new FormaterHTML(new OutputHTML()));
+    builder2.setFormater(new FormaterHTML(new OutputHTML()));
+    builder3.setFormater(new FormaterHTML(new OutputHTML()));
 }
 else if (format === 'txt') {
-    builder1.setStrategy(new FormaterTXT(new OutputTXT()));
-    builder2.setStrategy(new FormaterTXT(new OutputTXT()));
-    builder3.setStrategy(new FormaterTXT(new OutputTXT()));
+    builder1.setFormater(new FormaterTXT(new OutputTXT()));
+    builder2.setFormater(new FormaterTXT(new OutputTXT()));
+    builder3.setFormater(new FormaterTXT(new OutputTXT()));
 }
 else if (format === 'csv') {
-    builder1.setStrategy(new FormaterCSV(new OutputCSV()));
-    builder2.setStrategy(new FormaterCSV(new OutputCSV()));
-    builder3.setStrategy(new FormaterCSV(new OutputCSV()));
+    builder1.setFormater(new FormaterCSV(new OutputCSV()));
+    builder2.setFormater(new FormaterCSV(new OutputCSV()));
+    builder3.setFormater(new FormaterCSV(new OutputCSV()));
 }
 else if (format === 'json') {
-    builder1.setStrategy(new FormaterJSON(new OutputJSON()));
-    builder2.setStrategy(new FormaterJSON(new OutputJSON()));
-    builder3.setStrategy(new FormaterJSON(new OutputJSON()));
+    builder1.setFormater(new FormaterJSON(new OutputJSON()));
+    builder2.setFormater(new FormaterJSON(new OutputJSON()));
+    builder3.setFormater(new FormaterJSON(new OutputJSON()));
 }
 else if (format === 'xml') {
-    builder1.setStrategy(new FormaterXML(new OutputXML()));
-    builder2.setStrategy(new FormaterXML(new OutputXML()));
-    builder3.setStrategy(new FormaterXML(new OutputXML()));
+    builder1.setFormater(new FormaterXML(new OutputXML()));
+    builder2.setFormater(new FormaterXML(new OutputXML()));
+    builder3.setFormater(new FormaterXML(new OutputXML()));
 }
 else {
     console.log("ERRO: deve ser txt, html, xml, csv ou json");
@@ -77,11 +80,36 @@ else {
 }
 
 
+//----------TESTES------------
+
 // reporter = builder1.citiesReporter;
-// console.log(reporter.report(fileJSON1));
+//  console.log(reporter.report(fileJSON1));
 
 // reporter = builder2.citiesReporter;
 // console.log(reporter.report(fileJSON2));
 
 // reporter = builder3.citiesReporter;
 // console.log(reporter.report(fileCSV));
+
+//-----LETRAS MAIUSCULAS-----
+
+//  reporter = builder1.citiesReporter; // selecionar arquivo desejado
+//  const decoratorUpperCase = new toUpperCaseHTMLDecorator(reporter.report(fileJSON1)) // Parametro com o arquivo selecionado anteriormente
+//  decoratorUpperCase.decorateListItems()
+//  console.log(decoratorUpperCase.builderHTMLDecorator())
+
+//----------NEGRITO----------
+
+//  reporter = builder1.citiesReporter; 
+//  const decoratorBold = new toBoldHTMLDecorator(reporter.report(fileJSON1))
+//  decoratorBold.decorateListItems()
+//  console.log(decoratorBold.builderHTMLDecorator())
+
+//---LETRAS MAISCULAS EM NEGRITO---
+
+//  reporter = builder1.citiesReporter;
+//  const decoratorUpperCase = new toUpperCaseHTMLDecorator(reporter.report(fileJSON1))
+//  decoratorUpperCase.decorateListItems()
+//  const decoratorUpperBold = new toBoldHTMLDecorator(decoratorUpperCase.getDecoratedHTML())
+//  decoratorUpperBold.decorateListItems()
+//  console.log(decoratorUpperBold.builderHTMLDecorator())

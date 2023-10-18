@@ -36,7 +36,7 @@ export default class CitiesReporterBuilder extends CitiesReporter {
         }
     }
 
-    setStrategy(strategy) {
+    setFormater(strategy) {
         this.citiesReporter._type = strategy;
     }
 

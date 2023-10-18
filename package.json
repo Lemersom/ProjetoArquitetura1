@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "csv-to-js-parser": "^2.3.5"
+    "csv-to-js-parser": "^2.3.5",
+    "jsdom": "^22.1.0"
   }
 }
