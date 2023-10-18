@@ -12,15 +12,15 @@ export default class FormaterXML extends AbstractFormater {
 </View>`;
 
 
-  constructor(type) {
+  constructor(product) {
     super()
-    this._type = type;
+    this.product = product; // new OutputXML()
     this.xml = "";
   }
 
   report(data) {
     this.xml = this.xmlStart;
-    this.xml = this._type.output(data);
+    this.xml = this.product.output(data);
     this.xml += this.xmlEnd;
 
     return this.xml;

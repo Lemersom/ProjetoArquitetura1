@@ -9,6 +9,14 @@ export default class Parser {
         return this.createObj(csvToObj(fileCSV, ','), type);
     }
 
+
+    /* createObj: recebe um objeto e uma string, retorna um objeto
+    Função: criar um objeto padronizado, para evitar repetições nas funções de output
+    Anotações: 
+        file: arquivo em /data que já foi lido e passou pelo parse
+        type: tipo do arquivo
+    */
+
     createObj(file, type) {
         let finalObj = [];
 

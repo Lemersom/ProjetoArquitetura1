@@ -2,7 +2,7 @@ import AbstractFormater from "../AbstractFormater.js";
 
 export default class FormaterHTML extends AbstractFormater {
 
-  _htmlStart = `
+  htmlStart = `
   <!DOCTYPE HTML>
   <html>
     <head>
@@ -14,21 +14,21 @@ export default class FormaterHTML extends AbstractFormater {
       <ul>
   `;
 
-  _htmlEnd = `
+  htmlEnd = `
       </ul>
     </body>
   </html>`;
 
-  constructor(type) {
+  constructor(product) {
     super()
-    this._type = type;
+    this.product = product; // new OutputHTML()
     this.html = "";
   }
 
   report(data) {
-    this.html = this._htmlStart;
-    this.html = this._type.output(data);
-    this.html += this._htmlEnd;
+    this.html = this.htmlStart;
+    this.html = this.product.output(data);
+    this.html += this.htmlEnd;
 
     return this.html;
   }

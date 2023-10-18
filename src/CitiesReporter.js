@@ -3,36 +3,36 @@ import Reader from "./Reader.js";
 
 export default class CitiesReporter {
 
-    constructor(type) {
-        this._type = type;
+    constructor(format) {
+        this.format = format;
         this.reader = new Reader();
         this.parser = new Parser();
         this.readerType = "";
         this.parserType = "";
     }
 
-    _read(filename) {
+    read(filename) {
         if (this.readerType === "CSV") {
-            this._statesRead = this.reader.readCSV(filename);
+            this.cityDataRead = this.reader.readCSV(filename);
         }
         else if (this.readerType === "JSON") {
-            this._statesRead = this.reader.readJSON(filename);
+            this.cityDataRead = this.reader.readJSON(filename);
         }
     }
 
-    _parse() {
+    parse() {
         if (this.parserType === "CSV") {
-            this._states = this.parser.parseCSV(this._statesRead, this.parserType);
+            this.cityData = this.parser.parseCSV(this.cityDataRead, this.parserType);
         }
         else if (this.parserType === "JSON1" || this.parserType === "JSON2") {
-            this._states = this.parser.parseJSON(this._statesRead, this.parserType);
+            this.cityData = this.parser.parseJSON(this.cityDataRead, this.parserType);
         }
     }
 
     report(filename) {
-        this._read(filename);
-        this._parse();
-        return this._type.report(this._states);
+        this.read(filename);
+        this.parse();
+        return this.format.report(this.cityData);
     }
 
 }

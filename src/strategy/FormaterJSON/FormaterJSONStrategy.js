@@ -7,15 +7,15 @@ export default class FormaterJSON extends AbstractFormater {
   jsonEnd = `]`;
 
 
-  constructor(type) {
+  constructor(product) {
     super();
-    this._type = type;
+    this.product = product; // new OutputJSON()
     this.json = "";
   }
 
   report(data) {
     this.json = this.jsonStart;
-    this.json = this._type.output(data);
+    this.json = this.product.output(data);
     this.json += this.jsonEnd;
 
     return this.json;

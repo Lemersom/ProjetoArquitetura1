@@ -79,17 +79,27 @@ else {
     process.exit(1);
 }
 
+/* 
+    -----INSTRUÇÕES DE USO-----
+    npm start [format]
+
+    Opções de [format]: html, txt, csv, json, xml
+
+    Nos testes do Decorator utilizar a opção: html
+*/
+
 
 //----------TESTES------------
 
 // reporter = builder1.citiesReporter;
-//  console.log(reporter.report(fileJSON1));
+// console.log(reporter.report(fileJSON1));
 
 // reporter = builder2.citiesReporter;
 // console.log(reporter.report(fileJSON2));
 
 // reporter = builder3.citiesReporter;
 // console.log(reporter.report(fileCSV));
+
 
 //-----LETRAS MAIUSCULAS-----
 

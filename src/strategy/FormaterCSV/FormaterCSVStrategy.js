@@ -4,15 +4,15 @@ export default class FormaterCSV extends AbstractFormater {
 
   csvStart = `Cidade,Estado`;
 
-  constructor(type) {
+  constructor(product) {
     super();
-    this._type = type;
+    this.product = product; // new OutputCSV()
     this.csv = "";
   }
 
   report(data) {
     this.csv = this.csvStart;
-    this.csv = this._type.output(data);
+    this.csv = this.product.output(data);
 
     return this.csv;
   }

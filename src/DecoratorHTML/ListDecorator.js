@@ -16,9 +16,9 @@ export default class ListDecorator extends FormaterHTML{
 
   builderHTMLDecorator(){
     // constrói o html com o estilo aplicado aos <li>
-    return this._htmlStart + 
+    return this.htmlStart + 
            this.dataHTML + 
-           this._htmlEnd
+           this.htmlEnd
 
   }
 
