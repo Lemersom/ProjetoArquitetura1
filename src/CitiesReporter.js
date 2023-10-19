@@ -13,26 +13,26 @@ export default class CitiesReporter {
 
     read(filename) {
         if (this.readerType === "CSV") {
-            this.cityDataRead = this.reader.readCSV(filename);
+            this.citiesDataRead = this.reader.readCSV(filename);
         }
         else if (this.readerType === "JSON") {
-            this.cityDataRead = this.reader.readJSON(filename);
+            this.citiesDataRead = this.reader.readJSON(filename);
         }
     }
 
     parse() {
         if (this.parserType === "CSV") {
-            this.cityData = this.parser.parseCSV(this.cityDataRead, this.parserType);
+            this.citiesData = this.parser.parseCSV(this.citiesDataRead, this.parserType);
         }
         else if (this.parserType === "JSON1" || this.parserType === "JSON2") {
-            this.cityData = this.parser.parseJSON(this.cityDataRead, this.parserType);
+            this.citiesData = this.parser.parseJSON(this.citiesDataRead, this.parserType);
         }
     }
 
     report(filename) {
         this.read(filename);
         this.parse();
-        return this.format.report(this.cityData);
+        return this.format.report(this.citiesData);
     }
 
 }
